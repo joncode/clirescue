@@ -8,8 +8,8 @@ import (
 	"os"
 	u "os/user"
 
-	"github.com/GoBootcamp/clirescue/cmdutil"
-	"github.com/GoBootcamp/clirescue/user"
+	"github.com/joncode/clirescue/cmdutil"
+	"github.com/joncode/clirescue/user"
 )
 
 var (
@@ -50,17 +50,18 @@ func parse(body []byte) {
 
 func setCredentials() {
 	fmt.Fprint(Stdout, "Username: ")
-	var username = cmdutil.ReadLine()
+	username := cmdutil.ReadLine()
 	cmdutil.Silence()
 	fmt.Fprint(Stdout, "Password: ")
 
-	var password = cmdutil.ReadLine()
+	password := cmdutil.ReadLine()
 	currentUser.Login(username, password)
 	cmdutil.Unsilence()
 }
 
 func homeDir() string {
 	usr, _ := u.Current()
+	//fmt.Println(u)
 	return usr.HomeDir
 }
 
